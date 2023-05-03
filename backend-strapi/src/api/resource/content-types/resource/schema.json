@@ -4,7 +4,8 @@
   "info": {
     "singularName": "resource",
     "pluralName": "resources",
-    "displayName": "Resource"
+    "displayName": "Resource",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -16,6 +17,44 @@
     },
     "url": {
       "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "categories": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::category.category",
+      "mappedBy": "resources"
+    },
+    "tags": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::tag.tag",
+      "mappedBy": "resources"
+    },
+    "personas": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::persona.persona",
+      "mappedBy": "resources"
+    },
+    "blog_post": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::blog-post.blog-post",
+      "mappedBy": "resource"
     }
   }
 }
